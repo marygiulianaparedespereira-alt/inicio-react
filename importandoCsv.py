@@ -31,6 +31,19 @@ sumo_edad=df_filtrado['edad'].sum()
 print ("EDADES")
 print(f"monto analizado;{sumo_edad}.\n")
 
+
+//df_filtrado=df[filtro_avanzado]
+sumo_tabla=df_filtrado["x"].count(["x"])
+# ejercicio 2
+filtro_avanzado=df['nacionalidad_descripcion'].str.startswith("Argentina", na=False)
+df_filtrado=df[filtro_avanzado]
+identicos_nacio=df_filtrado['Argentina']=='Argentina'
+print ("nacionalidad")
+print(f"nacionalidad  analizado;{identicos_nacio}.\n")
+
+##ejercicio 3
+
+
 #filtro_numero=df['establecimiento_id']>500
 #clave morse quiere decir que primero sumo y lurgo lo guardo em la varriable
 if Default_limite_alto := (sumo_edad>50):
