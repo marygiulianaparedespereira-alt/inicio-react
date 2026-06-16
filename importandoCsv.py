@@ -1,10 +1,16 @@
 import pandas as pd 
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+
 
 #solo ponemos el nombre exacto del archivo, entre comillas
 df=pd.read_csv("sneep-2024.csv")
-print("OKEY! archivo cargando correctamente")
+#print("OKEY! archivo cargando correctamente")
+#filtro
 #mostrando las primeras filas  del dataframe
-print(df.head())
+#print(df.head())
 #mostrando resultado del año sea igual a 2022
 #resultado= df[df['censo_anio']==2022]
 #print(resultado)
@@ -14,15 +20,43 @@ print(df.head())
 #provinciaid=df['privincia_id']
 #print(provinciaid)
 
-provincia=df['provincia_id'].sum()
-print(f"provincias:{provincia}")
+#provincia=df['provincia_id'].sum()
+#print(f"provincias:{provincia}")
 
 
 filtro_avanzado=df['provincia_descripcion'].str.startswith("Tucuman", na=False)
-filtro_nuevo=df['establecimiento_id']>134
+#filtro_nuevo=df['establecimiento_id']>134
 df_filtrado=df[filtro_avanzado]
-sumo_establecimiento=df_filtrado['establecimiento_id'].sum()
-print ("establecimentos")
-print(f"monto analizado;{sumo_establecimiento:.2f}.\n")
+sumo_edad=df_filtrado['edad'].sum()
+print ("EDADES")
+print(f"monto analizado;{sumo_edad}.\n")
 
-filtro_numero=df['establecimiento_id']>500
+#filtro_numero=df['establecimiento_id']>500
+#clave morse quiere decir que primero sumo y lurgo lo guardo em la varriable
+if Default_limite_alto := (sumo_edad>50):
+    print ("¡Alerta El monto total supera el limite  establecido.")
+    print("Requiere revision inmediata")
+elif sumo_edad < 10:
+    print("Aviso:Edad menor a 10")
+else:
+    print ("mercado estable,sin alertas por el momento")
+    #grafico de barras usando toda df
+print ("\n [Generando GRAFICO de barras]")
+sns.set_theme (style="whitegrid")
+plt.figure(figsize=(10,6))
+sns.barplot(
+    data=df,
+    x="edad",
+    y="provincia_descripcion",
+    errorbar=None,
+    palette="viridis",
+
+)
+plt.title("Edades" ,fontsize=14)
+plt.xticks(rotation=20)
+#guardo grafico generado 
+plt.savefig("Grafico_barra.png",dpi=300)
+plt.close()
+    
+
+print ("\n¡Hecho! Los graficos se guardaron correctamente en tu carpeta")
