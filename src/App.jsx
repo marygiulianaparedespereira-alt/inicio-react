@@ -21,16 +21,37 @@ function App() {
 ]
 
 
-return {
-  <>
-  <Persona1 nombre="Mary" rol="Desarrolladora" lenguajes={["JavaScript", "React", "CSS"]} />
-
-  </div>
- 
-
-  
+function App() {
+  return (
+    <div>
+      <h1>Mary</h1>
+      <p>Desarrolladora</p>
+      <ul>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>CSS</li>
+      </ul>
+    </div>
+  );
 }
+
 }
+
+import Persona1 from "./components";
+
+function App() {
+  return (
+    <div>
+      <Persona1
+        nombre="Ana" 
+        rol="Desarrolladora" 
+        lenguajes={["JavaScript", "React", "CSS"]} 
+      />
+    </div>
+  );
+}
+
+
 
   return (
     <>
@@ -68,6 +89,6 @@ return {
       
     </>
   )
-}
+
 
 export default App

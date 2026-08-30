@@ -1,14 +1,11 @@
-export default function Persona1(props) {
-    const {nombre,apellido}=props
-    return (
-        <>
-        <div>
-          <p>"Desarrolladora"</p>
-          <ul>PHYTON</ul>
-          <ul>REACT</ul>
-          <ul>CCS</ul>
-        </div>
+function Perfil({ nombre, rol, lenguajes }) {
+  return (
+    <div>
+      <h1>{nombre}</h1>
+      <p>{rol}</p>
+      <ul>
 
-        </>
-    )
+      </ul>
+    </div>
+  );
 }
